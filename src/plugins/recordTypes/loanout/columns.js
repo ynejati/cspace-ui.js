@@ -9,7 +9,7 @@ export default {
       messages: defineMessages({
         label: {
           id: 'column.loanout.default.loanOutNumber',
-          defaultMessage: 'Loan Out Number',
+          defaultMessage: 'Loan out number',
         },
       }),
       sortBy: 'loansout_common:loanOutNumber',
@@ -31,7 +31,7 @@ export default {
       name: 'updatedAt',
       messages: defineMessages({
         label: {
-          id: 'column.group.default.updatedAt',
+          id: 'column.loanout.default.updatedAt',
           defaultMessage: 'Updated',
         },
       }),

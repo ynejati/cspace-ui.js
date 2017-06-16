@@ -3,14 +3,16 @@ import columns from './columns';
 import defaultForm from './forms/default';
 import fields from './fields';
 import messages from './messages';
+import optionLists from './optionLists';
 import serviceConfig from './serviceConfig';
 import title from './title';
 import idGenerators from './idGenerators';
 
 export default () => pluginContext => ({
   idGenerators,
+  optionLists,
   recordTypes: {
-    loanout: {
+    acquisition: {
       advancedSearch,
       columns,
       messages,
