@@ -58,18 +58,28 @@ export default (pluginContext) => {
 
         {/* TODO Build out Price information table*/}
         <Row>
-          <InputTable name="priceInformation">
-            <Field name="groupPurchasePriceCurrency" />
-            <Field name="groupPurchasePriceValue" />
-            <Field name="objectOfferPriceCurrency" />
-            <Field name="objectOfferPriceValue" />
-            <Field name="objectPurchaseOfferPriceCurrency" />
-            <Field name="objectPurchaseOfferPriceValue" />
-            <Field name="objectPurchasePriceCurrency" />
-            <Field name="objectPurchasePriceValue" />
-            <Field name="originalObjectPurchasePriceCurrency" />
-            <Field name="originalObjectPurchasePriceValue" />
-          </InputTable>
+          <Panel name="priceInformation" collapsible>
+            <InputTable name="groupPurchasePrice">
+              <Field name="groupPurchasePriceValue" />
+              <Field name="groupPurchasePriceCurrency" />
+            </InputTable>
+            <InputTable name="objectOfferPrice">
+              <Field name="objectOfferPriceValue" />
+              <Field name="objectOfferPriceCurrency" />
+            </InputTable>
+            <InputTable name="objectPurchaseOfferPrice">
+              <Field name="objectPurchaseOfferPriceValue" />
+              <Field name="objectPurchaseOfferPriceCurrency" />
+            </InputTable>
+            <InputTable name="objectPurchasePrice">
+              <Field name="objectPurchasePriceValue" />
+              <Field name="objectPurchasePriceCurrency" />
+            </InputTable>
+            <InputTable name="originalObjectPurchasePrice">
+              <Field name="originalObjectPurchasePriceValue" />
+              <Field name="originalObjectPurchasePriceCurrency" />
+            </InputTable>
+          </Panel>
         </Row>
 
         <Row>

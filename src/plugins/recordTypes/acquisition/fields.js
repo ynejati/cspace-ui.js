@@ -257,6 +257,12 @@ export default (pluginContext) => {
         },
         groupPurchasePriceCurrency: {
           [config]: {
+            messages: defineMessages({
+              name: {
+                id: 'field.acquisitions_common.groupPurchasePriceCurrency.name',
+                defaultMessage: 'Currency',
+              },
+            }),
             view: {
               type: TermPickerInput,
               props: {
@@ -267,6 +273,12 @@ export default (pluginContext) => {
         },
         groupPurchasePriceValue: {
           [config]: {
+            messages: defineMessages({
+              name: {
+                id: 'field.acquisitions_common.groupPurchasePriceValue.name',
+                defaultMessage: 'Value',
+              },
+            }),
             dataType: DATA_TYPE_INT,
             view: {
               type: TextInput,
@@ -275,6 +287,12 @@ export default (pluginContext) => {
         },
         objectOfferPriceCurrency: {
           [config]: {
+            messages: defineMessages({
+              name: {
+                id: 'field.acquisitions_common.objectOfferPriceCurrency.name',
+                defaultMessage: 'Currency',
+              },
+            }),
             view: {
               type: TermPickerInput,
               props: {
@@ -285,6 +303,12 @@ export default (pluginContext) => {
         },
         objectOfferPriceValue: {
           [config]: {
+            messages: defineMessages({
+              name: {
+                id: 'field.acquisitions_common.objectOfferPriceValue.name',
+                defaultMessage: 'Value',
+              },
+            }),
             dataType: DATA_TYPE_INT,
             view: {
               type: TextInput,
@@ -293,6 +317,12 @@ export default (pluginContext) => {
         },
         objectPurchaseOfferPriceCurrency: {
           [config]: {
+            messages: defineMessages({
+              name: {
+                id: 'field.acquisitions_common.objectPurchaseOfferPriceCurrency.name',
+                defaultMessage: 'Currency',
+              },
+            }),
             view: {
               type: TermPickerInput,
               props: {
@@ -303,6 +333,12 @@ export default (pluginContext) => {
         },
         objectPurchaseOfferPriceValue: {
           [config]: {
+            messages: defineMessages({
+              name: {
+                id: 'field.acquisitions_common.objectPurchaseOfferPriceValue.name',
+                defaultMessage: 'Value',
+              },
+            }),
             dataType: DATA_TYPE_INT,
             view: {
               type: TextInput,
@@ -311,6 +347,12 @@ export default (pluginContext) => {
         },
         objectPurchasePriceCurrency: {
           [config]: {
+            messages: defineMessages({
+              name: {
+                id: 'field.acquisitions_common.objectPurchasePriceCurrency.name',
+                defaultMessage: 'Currency',
+              },
+            }),
             view: {
               type: TermPickerInput,
               props: {
@@ -321,6 +363,12 @@ export default (pluginContext) => {
         },
         objectPurchasePriceValue: {
           [config]: {
+            messages: defineMessages({
+              name: {
+                id: 'field.acquisitions_common.objectPurchasePriceValue.name',
+                defaultMessage: 'Value',
+              },
+            }),
             dataType: DATA_TYPE_INT,
             view: {
               type: TextInput,
@@ -329,6 +377,12 @@ export default (pluginContext) => {
         },
         originalObjectPurchasePriceCurrency: {
           [config]: {
+            messages: defineMessages({
+              name: {
+                id: 'field.acquisitions_common.originalObjectPurchasePriceCurrency.name',
+                defaultMessage: 'Currency',
+              },
+            }),
             view: {
               type: TermPickerInput,
               props: {
@@ -339,6 +393,12 @@ export default (pluginContext) => {
         },
         originalObjectPurchasePriceValue: {
           [config]: {
+            messages: defineMessages({
+              name: {
+                id: 'field.acquisitions_common.originalObjectPurchasePriceValue.name',
+                defaultMessage: 'Value',
+              },
+            }),
             dataType: DATA_TYPE_INT,
             view: {
               type: TextInput,

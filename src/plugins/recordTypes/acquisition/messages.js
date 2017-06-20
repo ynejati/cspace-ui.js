@@ -27,15 +27,35 @@ export default {
       id: 'panel.acquisition.objectCollectionInformation',
       defaultMessage: 'Object Collection Information',
     },
+    priceInformation: {
+      id: 'panel.acquisition.priceInformation',
+      defaultMessage: 'Price information',
+    },
   }),
   inputTable: defineMessages({
     acquisitionAuthorizer: {
       id: 'inputTable.acquisition.acquisitionAuthorizer',
       defaultMessage: 'Acquisition authorizer',
     },
-    priceInformation: {
-      id: 'inputTable.acquisition.priceInformation',
-      defaultMessage: 'Price information',
+    groupPurchasePrice: {
+      id: 'inputTable.acquisition.groupPurchasePrice',
+      defaultMessage: 'Group purchase price',
+    },
+    objectOfferPrice: {
+      id: 'inputTable.acquisition.objectOfferPrice',
+      defaultMessage: 'Object offer price',
+    },
+    objectPurchaseOfferPrice: {
+      id: 'inputTable.acquisition.objectPurchaseOfferPrice',
+      defaultMessage: 'Object purchaser offer price',
+    },
+    objectPurchasePrice: {
+      id: 'inputTable.acquisition.objectPurchasePrice',
+      defaultMessage: 'Object purchase price',
+    },
+    originalObjectPurchasePrice: {
+      id: 'inputTable.acquisition.originalObjectPurchasePrice',
+      defaultMessage: 'Original object purchase price',
     },
   }),
 };
