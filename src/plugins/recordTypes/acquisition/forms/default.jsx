@@ -17,70 +17,66 @@ export default (pluginContext) => {
     <Field name="document">
 
       <Panel name="info" collapsible>
-        { /* TODO Add columns component */ }
-        <Row>
-          <Field name="acquisitionReferenceNumber" />
-          <Field name="accessionDateGroup" />
-        </Row>
 
+        { /* TODO replace Row with Cols component*/ }
         <Row>
-          <Field name="acquisitionDateGroupList">
-            <Field name="acquisitionDateGroup" />
-          </Field>
-          <Field name="acquisitionMethod" />
-        </Row>
 
-        <Row>
-          <InputTable name="acquisitionAuthorizer">
-            <Field name="acquisitionAuthorizer" />
-            <Field name="acquisitionAuthorizerDate" />
-          </InputTable>
-        </Row>
-
-        <Row>
-          <Field name="acquisitionSources">
-            <Field name="acquisitionSource" />
-          </Field>
-          <Field name="owners">
-            <Field name="owner" />
-          </Field>
-        </Row>
-
-        <Row>
-          <Field name="transferOfTitleNumber" />
-          <Field name="acquisitionReason" />
-        </Row>
-
-        <Row>
-          <Field name="acquisitionNote" />
-          <Field name="acquisitionProvisos" />
-        </Row>
-
-        {/* TODO Build out Price information table*/}
-        <Row>
-          <Panel name="priceInformation" collapsible>
-            <InputTable name="groupPurchasePrice">
-              <Field name="groupPurchasePriceValue" />
-              <Field name="groupPurchasePriceCurrency" />
+          { /* Start the left column */ }
+          { /* TODO replace div with Col*/ }
+          <div>
+            <Field name="acquisitionReferenceNumber" />
+            <Field name="accessionDateGroup" />
+            <InputTable name="acquisitionAuthorizer">
+              <Field name="acquisitionAuthorizer" />
+              <Field name="acquisitionAuthorizerDate" />
             </InputTable>
-            <InputTable name="objectOfferPrice">
-              <Field name="objectOfferPriceValue" />
-              <Field name="objectOfferPriceCurrency" />
-            </InputTable>
-            <InputTable name="objectPurchaseOfferPrice">
-              <Field name="objectPurchaseOfferPriceValue" />
-              <Field name="objectPurchaseOfferPriceCurrency" />
-            </InputTable>
-            <InputTable name="objectPurchasePrice">
-              <Field name="objectPurchasePriceValue" />
-              <Field name="objectPurchasePriceCurrency" />
-            </InputTable>
-            <InputTable name="originalObjectPurchasePrice">
-              <Field name="originalObjectPurchasePriceValue" />
-              <Field name="originalObjectPurchasePriceCurrency" />
-            </InputTable>
-          </Panel>
+            <Field name="acquisitionDateGroupList">
+              <Field name="acquisitionDateGroup" />
+            </Field>
+            <Field name="acquisitionMethod" />
+            <Field name="acquisitionSources">
+              <Field name="acquisitionSource" />
+            </Field>
+            <Field name="owners">
+              <Field name="owner" />
+            </Field>
+            <Field name="transferOfTitleNumber" />
+          </div>
+
+          { /* Start the right column */ }
+          { /* TODO replace div with Col*/ }
+
+          <div>
+            <Panel name="priceInformation">
+              <InputTable name="groupPurchasePrice">
+                <Field name="groupPurchasePriceValue" />
+                <Field name="groupPurchasePriceCurrency" />
+              </InputTable>
+              <InputTable name="objectOfferPrice">
+                <Field name="objectOfferPriceValue" />
+                <Field name="objectOfferPriceCurrency" />
+              </InputTable>
+              <InputTable name="objectPurchaseOfferPrice">
+                <Field name="objectPurchaseOfferPriceValue" />
+                <Field name="objectPurchaseOfferPriceCurrency" />
+              </InputTable>
+              <InputTable name="objectPurchasePrice">
+                <Field name="objectPurchasePriceValue" />
+                <Field name="objectPurchasePriceCurrency" />
+              </InputTable>
+              <InputTable name="originalObjectPurchasePrice">
+                <Field name="originalObjectPurchasePriceValue" />
+                <Field name="originalObjectPurchasePriceCurrency" />
+              </InputTable>
+            </Panel>
+
+            <Field name="acquisitionReason" />
+
+          </div>
         </Row>
+
+        <Field name="acquisitionNote" />
+        <Field name="acquisitionProvisos" />
 
         <Row>
           <Field name="acquisitionFundingList">
@@ -93,9 +89,7 @@ export default (pluginContext) => {
           </Field>
         </Row>
 
-        <Row>
-          <Field name="creditLine" />
-        </Row>
+        <Field name="creditLine" />
 
       </Panel>
 
