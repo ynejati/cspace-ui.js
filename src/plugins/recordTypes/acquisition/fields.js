@@ -126,7 +126,7 @@ export default (pluginContext) => {
             view: {
               type: AutocompleteInput,
               props: {
-                source: 'person/local,person/shared',
+                source: 'person/local',
               },
             },
           },
@@ -199,7 +199,7 @@ export default (pluginContext) => {
               view: {
                 type: AutocompleteInput,
                 props: {
-                  source: 'person/local,person/shared,organization/local,organization/shared',
+                  source: 'person/local,organization/local',
                 },
               },
             },
@@ -223,7 +223,7 @@ export default (pluginContext) => {
               view: {
                 type: AutocompleteInput,
                 props: {
-                  source: 'person/local,person/shared,organization/local,organization/shared',
+                  source: 'person/local,organization/local',
                 },
               },
             },
@@ -516,7 +516,7 @@ export default (pluginContext) => {
                 view: {
                   type: AutocompleteInput,
                   props: {
-                    source: 'person/local,person/shared,organization/local/organization/shared',
+                    source: 'person/local,organization/local',
                   },
                 },
               },

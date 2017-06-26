@@ -1,6 +1,6 @@
 export default {
   serviceName: 'Acquisition',
-  servicePath: 'acquisition',
+  servicePath: 'acquisitions',
   serviceType: 'procedure',
 
   objectName: 'Acquisition',
