@@ -6,6 +6,8 @@ export default (pluginContext) => {
   const {
     Panel,
     Row,
+    Cols,
+    Col,
   } = pluginContext.layoutComponents;
 
   const {
@@ -18,12 +20,10 @@ export default (pluginContext) => {
 
       <Panel name="info" collapsible>
 
-        { /* TODO replace Row with Cols component*/ }
-        <Row>
+        <Cols>
 
           { /* Start the left column */ }
-          { /* TODO replace div with Col*/ }
-          <div>
+          <Col>
             <Field name="acquisitionReferenceNumber" />
             <Field name="accessionDateGroup" />
             <InputTable name="acquisitionAuthorizer">
@@ -41,12 +41,10 @@ export default (pluginContext) => {
               <Field name="owner" />
             </Field>
             <Field name="transferOfTitleNumber" />
-          </div>
+          </Col>
 
           { /* Start the right column */ }
-          { /* TODO replace div with Col*/ }
-
-          <div>
+          <Col>
             <Panel name="priceInformation">
               <InputTable name="groupPurchasePrice">
                 <Field name="groupPurchasePriceValue" />
@@ -72,8 +70,8 @@ export default (pluginContext) => {
 
             <Field name="acquisitionReason" />
 
-          </div>
-        </Row>
+          </Col>
+        </Cols>
 
         <Field name="acquisitionNote" />
         <Field name="acquisitionProvisos" />
