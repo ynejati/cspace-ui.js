@@ -181,6 +181,7 @@ export const normalizeCondition = (fieldDescriptor, condition) => {
   return null;
 };
 
+// See NXQL API documentation for more information on operators and NXQL syntax
 const operatorToNXQLMap = {
   [OP_AND]: 'AND',
   [OP_OR]: 'OR',

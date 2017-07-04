@@ -1,3 +1,4 @@
+// See helpers/searchHelpers for more information
 export const OP_AND = 'and';
 export const OP_OR = 'or';
 
