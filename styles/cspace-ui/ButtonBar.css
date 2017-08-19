@@ -14,3 +14,18 @@
 footer > .common {
   text-align: right;
 }
+
+.docked {
+  composes: common;
+}
+
+.docked {
+  position: fixed;
+  width: 100%;
+  left: 0; 
+  top: 75; 
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  z-index: 99;
+  background-color: #fff;
+  padding: 8px;
+}

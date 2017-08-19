@@ -11,6 +11,7 @@ const propTypes = {
   subtitle: PropTypes.node,
   aside: PropTypes.node,
   nav: PropTypes.node,
+  buttonBar: PropTypes.node,
   serviceType: PropTypes.string,
 };
 

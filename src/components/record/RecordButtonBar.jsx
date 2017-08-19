@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
+import classNames from 'classnames';
 import CloneButton from './CloneButton';
 import SaveButton from './SaveButton';
 import RevertButton from './RevertButton';
@@ -19,46 +20,101 @@ const propTypes = {
   onSaveButtonErrorBadgeClick: PropTypes.func,
 };
 
-export default function RecordButtonBar(props) {
-  const {
-    csid,
-    isModified,
-    isSavePending,
-    validationErrors,
-    onCloneButtonClick,
-    onDeleteButtonClick,
-    onRevertButtonClick,
-    onSaveButtonClick,
-    onSaveButtonErrorBadgeClick,
-  } = props;
+export default class RecordButtonBar extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className={styles.common}>
-      <SaveButton
-        isModified={isModified}
-        isSavePending={isSavePending}
-        validationErrors={validationErrors}
-        onClick={onSaveButtonClick}
-        onErrorBadgeClick={onSaveButtonErrorBadgeClick}
-      />
-      <CloneButton
-        csid={csid}
-        isModified={isModified}
-        isSavePending={isSavePending}
-        onClick={onCloneButtonClick}
-      />
-      <RevertButton
-        isModified={isModified}
-        isSavePending={isSavePending}
-        onClick={onRevertButtonClick}
-      />
-      <DeleteButton
-        csid={csid}
-        isSavePending={isSavePending}
-        onClick={onDeleteButtonClick}
-      />
-    </div>
-  );
+    this.setDomNode = this.setDomNode.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+
+    this.state = {
+      docked: false,
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll, false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll, false);
+  }
+
+  setDomNode(ref) {
+    this.domNode = ref;
+  }
+
+  handleScroll() {
+    const node = this.domNode;
+
+    if (!node) return;
+
+    if (this.state.docked) {
+      if (window.scrollY < 136) {
+        this.setState({
+          docked: false,
+        });
+      }
+    } else if (window.scrollY >= 136) {
+      this.setState({
+        docked: true,
+      });
+    }
+  }
+
+  render() {
+
+    const {
+      docked,
+    } = this.state;
+
+    const {
+      isModified,
+      isSavePending,
+      validationErrors,
+      onSaveButtonClick,
+      onSaveButtonErrorBadgeClick,
+      csid,
+      onCloneButtonClick,
+      onRevertButtonClick,
+      onDeleteButtonClick,
+    } = this.props;
+
+    const className = classNames(docked ? styles.docked : styles.common);
+    const inlineStyle = docked ? { height: this.domNode.offsetHeight } : {};
+
+    return (
+      <div 
+        className={className} 
+        style={inlineStyle}
+        ref={this.setDomNode}
+      >
+        <SaveButton
+          isModified={isModified}
+          isSavePending={isSavePending}
+          validationErrors={validationErrors}
+          onClick={onSaveButtonClick}
+          onErrorBadgeClick={onSaveButtonErrorBadgeClick}
+        />
+        <CloneButton
+          csid={csid}
+          isModified={isModified}
+          isSavePending={isSavePending}
+          onClick={onCloneButtonClick}
+        />
+        <RevertButton
+          isModified={isModified}
+          isSavePending={isSavePending}
+          onClick={onRevertButtonClick}
+        />
+        <DeleteButton
+          csid={csid}
+          isSavePending={isSavePending}
+          onClick={onDeleteButtonClick}
+        />
+      </div>
+    );
+  }
 }
 
 RecordButtonBar.propTypes = propTypes;
