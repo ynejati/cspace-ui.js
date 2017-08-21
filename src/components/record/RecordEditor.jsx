@@ -1,8 +1,11 @@
+/* global window */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Prompt } from 'react-router';
 import Immutable from 'immutable';
 import warning from 'warning';
+import classNames from 'classnames';
 import RecordButtonBar from './RecordButtonBar';
 import RecordFormSelector from './RecordFormSelector';
 import RecordHistory from './RecordHistory';
@@ -98,6 +101,12 @@ export default class RecordEditor extends Component {
     this.handleCloneButtonClick = this.handleCloneButtonClick.bind(this);
     this.handleDeleteButtonClick = this.handleDeleteButtonClick.bind(this);
     this.handleRecordFormSelectorCommit = this.handleRecordFormSelectorCommit.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+    this.handleHeaderRef = this.handleHeaderRef.bind(this);
+
+    this.state = {
+      docked: false,
+    };
   }
 
   getChildContext() {
@@ -118,6 +127,7 @@ export default class RecordEditor extends Component {
 
   componentDidMount() {
     this.initRecord();
+    window.addEventListener('scroll', this.handleScroll, false);
   }
 
   componentDidUpdate(prevProps) {
@@ -153,6 +163,8 @@ export default class RecordEditor extends Component {
     if (removeValidationNotification) {
       removeValidationNotification();
     }
+
+    window.removeEventListener('scroll', this.handleScroll, false);
   }
 
   initRecord() {
@@ -285,6 +297,24 @@ export default class RecordEditor extends Component {
     }
   }
 
+  handleScroll() {
+    const header = this.header;
+
+    if (!header) return;
+
+    if (this.state.docked) {
+      if (window.scrollY < 136) {
+        this.setState({
+          docked: false,
+        });
+      }
+    } else if (window.scrollY >= 136) {
+      this.setState({
+        docked: true,
+      });
+    }
+  }
+
   handleSaveButtonClick() {
     const {
       save,
@@ -314,6 +344,10 @@ export default class RecordEditor extends Component {
     if (setForm) {
       setForm(value);
     }
+  }
+
+  handleHeaderRef(ref) {
+    this.header = ref;
   }
 
   renderConfirmNavigationModal() {
@@ -374,6 +408,10 @@ export default class RecordEditor extends Component {
       onRemoveInstance,
     } = this.props;
 
+    const {
+      docked,
+    } = this.state;
+
     const recordTypeConfig = config.recordTypes[recordType];
 
     if (!recordTypeConfig) {
@@ -404,34 +442,44 @@ export default class RecordEditor extends Component {
         child => renderTemplate(child, messages, handlers)),
     });
 
+    const className = classNames(docked ? styles.docked : styles.common);
+    const inlineStyle = docked ? { height: this.header.offsetHeight } : {};
+
     return (
       <form
         autoComplete="off"
         className={styles.common}
       >
+
         <header>
-          <RecordButtonBar
-            csid={csid}
-            isModified={isModified}
-            isSavePending={isSavePending}
-            validationErrors={validationErrors}
-            onSaveButtonClick={this.handleSaveButtonClick}
-            onSaveButtonErrorBadgeClick={this.handleSaveButtonErrorBadgeClick}
-            onRevertButtonClick={this.handleRevertButtonClick}
-            onCloneButtonClick={this.handleCloneButtonClick}
-            onDeleteButtonClick={this.handleDeleteButtonClick}
-          />
-          <RecordFormSelector
-            config={config}
-            formName={formName}
-            recordType={recordType}
-            onCommit={this.handleRecordFormSelectorCommit}
-          />
-          <RecordHistory
-            data={data}
-            isModified={isModified}
-            isSavePending={isSavePending}
-          />
+          <div
+            className={className}
+            ref={this.handleHeaderRef}
+            style={inlineStyle}
+          >
+            <RecordButtonBar
+              csid={csid}
+              isModified={isModified}
+              isSavePending={isSavePending}
+              validationErrors={validationErrors}
+              onSaveButtonClick={this.handleSaveButtonClick}
+              onSaveButtonErrorBadgeClick={this.handleSaveButtonErrorBadgeClick}
+              onRevertButtonClick={this.handleRevertButtonClick}
+              onCloneButtonClick={this.handleCloneButtonClick}
+              onDeleteButtonClick={this.handleDeleteButtonClick}
+            />
+            <RecordFormSelector
+              config={config}
+              formName={formName}
+              recordType={recordType}
+              onCommit={this.handleRecordFormSelectorCommit}
+            />
+            <RecordHistory
+              data={data}
+              isModified={isModified}
+              isSavePending={isSavePending}
+            />
+          </div>
         </header>
         {formContent}
         <footer>
