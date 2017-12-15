@@ -9,7 +9,7 @@ import { getDisplayName } from 'cspace-refname';
 import DateInputContainer from '../containers/input/DateInputContainer';
 import DateTimeInputContainer from '../containers/input/DateTimeInputContainer';
 import IDGeneratorInputContainer from '../containers/input/IDGeneratorInputContainer';
-import AutocompleteInputContainer from '../containers/input/AutocompleteInputContainer';
+// import AutocompleteInputContainer from '../containers/input/AutocompleteInputContainer';
 import OptionPickerInputContainer from '../containers/input/OptionPickerInputContainer';
 import StructuredDateInputContainer from '../containers/input/StructuredDateInputContainer';
 import TermPickerInputContainer from '../containers/input/TermPickerInputContainer';
@@ -22,6 +22,7 @@ import HierarchyInput from '../components/record/HierarchyInput';
 import InputTable from '../components/record/InputTable';
 import Subrecord from '../components/record/Subrecord';
 import ContentViewer from '../components/record/ContentViewer';
+import MiniViewPopupAutocomplete from '../components/record/MiniViewPopupAutocomplete';
 
 import * as dataTypes from '../constants/dataTypes';
 import * as searchOperators from '../constants/searchOperators';
@@ -48,7 +49,7 @@ const {
   TextInput,
 } = inputComponents;
 
-const AutocompleteInput = AutocompleteInputContainer;
+const AutocompleteInput = MiniViewPopupAutocomplete;
 const CheckboxInput = withBooleanValue(BaseCheckboxInput);
 const DateInput = DateInputContainer;
 const DateTimeInput = DateTimeInputContainer;
